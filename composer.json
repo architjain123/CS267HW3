@@ -1,0 +1,24 @@
+{
+    "name": "hw3/termprep",
+    "description": "HW3 for CS267",
+    "authors": [
+        {
+            "name": "Archit",
+            "email": "archit.jain@sjsu.edu"
+        },
+        {
+            "name": "Damanpreet",
+            "email": "damanpreet.kaur@sjsu.edu"
+        },
+        {
+            "name": "Inderpreet",
+            "email": "inderpreet.singh@sjsu.edu"
+        }
+    ],
+    "config": {
+        "secure-http": false
+    },
+    "require": {
+        "seekquarry/yioop": "dev-master"
+    }
+}
