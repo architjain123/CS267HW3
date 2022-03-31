@@ -1,71 +1,75 @@
 search results for queries on different search engines
 
-What is my ip? (Google)
-https://whatismyipaddress.com/
-https://www.whatismyip.com/
-https://nordvpn.com/what-is-my-ip/
-https://www.whatismyip-address.com/
-https://www.iplocation.net/find-ip-address
+Google
+how to restore iphone
+https://support.apple.com/en-au/HT204184
+https://support.apple.com/en-us/HT204184
+https://support.apple.com/guide/iphone/restore-all-content-from-a-backup-iph1624229a/ios
+https://www.hellotech.com/guide/for/how-to-restore-iphone-itunes-finder-icloud-backup
+https://www.copytrans.net/blog/how-to-restore-iphone-6-different-ways/
 
-What is my ip? (Bing)
-https://www.whatismyip.com/
-https://whatismyipaddress.com/
-https://www.whatismyip.net/
-https://www.whatsmyip.org/
-https://nordvpn.com/what-is-my-ip
+how to unlock iphone
+https://support.apple.com/en-us/HT201328
+https://support.apple.com/en-us/HT204306
+https://swappie.com/en/blog/how-to-unlock-your-iphone-an-easy-guide/
+https://www.macworld.co.uk/how-to/unlock-iphone-3501427/
+https://iphonegeeks.com/how-to-unlock-a-disabled-iphone-without-itunes-or-icloud-or-computer/
 
-What time is it? (Google)
-https://time.is/
-https://www.time.gov/
-https://www.timeanddate.com/worldclock/
-http://www.whattimeisit.com/
-https://vclock.com/time/
 
-What time is it? (Bing)
-https://time.is/
-https://www.timeanddate.com/worldclock/
-https://www.thetimenow.com/
-http://www.whattimeisit.com/
-https://www.timeanddate.com/worldclock/usa/san-jose
+how to reset iphone
+https://www.businessinsider.com/how-to-reset-iphone
+https://support.apple.com/guide/iphone/force-restart-iphone-iph8903c3ee6/ios
+https://support.apple.com/en-us/HT201274
+https://support.apple.com/guide/iphone/erase-iphone-iph7a2a9399b/ios
+https://www.businessinsider.com/how-to-restart-iphone
 
-How to register to vote? (Google)
-https://www.vote.org/am-i-registered-to-vote/
-https://www.rockthevote.org/how-to-vote/register-to-vote/
-https://registertovote.ca.gov/
-https://www.usa.gov/register-to-vote
-https://vote.gov/
+how does uber work
+https://www.uber.com/us/en/about/how-does-uber-work/
+https://help.uber.com/h/738d1ff7-5fe0-4383-b34c-4a2480efd71e
+https://www.uber.com/gb/en/ride/how-it-works/
+https://www.uber.com/us/en/ride/how-it-works/
+https://www.lifewire.com/how-does-uber-work-3862752
 
-How to register to vote? (Bing)
-https://www.usa.gov/register-to-vote
-https://www.usa.gov/voter-registration/
-https://vote.gov/
-https://www.texas.gov/living-in-texas/texas-voter-registration/
-https://registertovote.ca.gov/
+how to use uber
+https://www.uber.com/en-AE/blog/how-to-use-uber-for-the-first-time/
+https://www.uber.com/en-IE/blog/tips-for-how-to-use-uber-for-the-first-time/
+https://www.uber.com/us/en/ride/how-it-works/
+https://www.wikihow.com/Use-Uber
+https://www.ridester.com/how-does-uber-work/
 
-How to tie a tie? (Google)
-https://www.ties.com/how-to-tie-a-tie
-https://www.theknot.com/content/how-to-tie-a-tie
-https://www.wikihow.com/Tie-a-Tie
-https://www.paulfredrick.com/help/how-to-tie-a-tie
-https://www.realmenrealstyle.com/how-to-tie-a-tie/
 
-How to tie a tie? (Bing)
-https://www.ties.com/how-to-tie-a-tie
-https://www.theknot.com/content/how-to-tie-a-tie
-https://www.wikihow.com/Tie-a-Tie
-https://bespokeunit.com/suits/ties/how-to-tie/
-http://www.tie-a-tie.net/
+Bing
+How to restore iphone
+https://support.apple.com/en-us/HT201252
+https://support.apple.com/guide/itunes/restore-to-factory-settings-itnsdb1fe305/windows
+https://www.lifewire.com/how-to-restore-an-iphone-577630
+https://www.fonepaw.com/tutorials/restore-iphone-without-itunes.html
+https://www.tenorshare.net/ads/bing/reiboot.html
 
-Can you run it? (Google)
-https://www.systemrequirementslab.com/cyri
-https://www.pcgamebenchmark.com/
-https://technical.city/en/can-i-run-it
-https://www.game-debate.com/can-I-run?EA
-https://sysrqmts.com/
+How to unlock iphone
+https://support.apple.com/en-us/HT201328
+https://support.apple.com/en-us/HT204306
+https://support.apple.com/guide/iphone/wake-and-unlock-iph5a0b5b9c5/ios
+https://www.supereasy.com/how-to-unlock-iphone/
+https://www.imyfone.net/unlock-iphone-passcode/
 
-Can you run it? (Bing)
-https://www.systemrequirementslab.com/cyri/
-https://technical.city/en/can-i-run-it
-https://systemrequirementslab.com/all-games-list/
-https://www.makeuseof.com/tag/can-you-run-it-games/
-https://www.systemrequirementslab.com/cyri-score
+How to reset iphone
+https://support.apple.com/en-us/HT201274
+https://support.apple.com/en-us/HT201252
+https://www.imyfone.com/iphone-issues/how-to-reset-iphone/
+https://www.youtube.com/watch?v=qJk614lin-o
+https://www.lifewire.com/how-to-restore-iphone-to-factory-settings-2000277
+
+How does uber work
+https://www.uber.com/us/en/about/how-does-uber-work/
+https://help.uber.com/riders/article/how-does-uber-work?nodeId=738d1ff7-5fe0-4383-b34c-4a2480efd71e
+https://www.lifewire.com/how-does-uber-work-3862752
+https://www.ridester.com/how-does-uber-work/
+https://gogograndparent.com/needuberlyft
+
+How to use uber
+https://www.youtube.com/watch?v=6kPDd9SMJ0A
+https://www.uber.com/us/en/ride/
+https://gogograndparent.com/needuberlyft
+https://ask-crew.com/dem/g1
+https://www.lyft.com/drive-with-lyft
