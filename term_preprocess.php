@@ -33,11 +33,13 @@ foreach ($lines as $line) {
 $pages = FetchUrl::getPages($sites = $urls);
 $html_processor = new HtmlProcessor($max_description_len = 20000, $summarizer_option = CrawlConstants::CENTROID_WEIGHTED_SUMMARIZER);
 
+mkdir("temp");
 $i = 0;
 foreach ($pages as $page){
     if (trim($page[CrawlConstants::PAGE]) == ""){
         $failed_url = $page[CrawlConstants::URL];
         print_r("ERROR: Cannot process $failed_url as page is empty");
+        continue;
     }
 
     $html_content = $html_processor->process($page[CrawlConstants::PAGE], $page[CrawlConstants::URL]);
@@ -67,17 +69,17 @@ foreach ($pages as $page){
     }
     
     sort($stemmed_keys);
-    mkdir("temp");
     create_summary_file($i, $stemmed_keys);
     $i = $i + 1;
     print_r($page[CrawlConstants::URL] . "\n");
-    foreach($stemmed_keys as $key){
-        print_r($key . "\n");
-    }
+    // foreach($stemmed_keys as $key){
+    //     print_r($key . "\n");
+    // }
     print_r("\n");
 }
 
 function create_summary_file($i, $stemmed_keys){
+    $text = implode(" ", $stemmed_keys);
     file_put_contents("temp/$i.txt", $text);
 }
 

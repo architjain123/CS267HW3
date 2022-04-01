@@ -59,7 +59,7 @@ def calc_tfidfs(tfs, idfs):
     return tf_idfs
 
 def comp_vec_sim(q, d, num):
-    print(q, d)
+    # print(q, d)
     q_vec = []
     d_vec = []
     for term in q:
@@ -89,8 +89,14 @@ def write_res():
         out.write(str(k)+": "+str(v)+"\n")
     out.close()
 
+
+def write_to_file(content, filename):
+    with open(filename, "w") as f:
+        f.write(content)
+
+
 tfs = {}
-tfs["query"] = calc_tf("what is ip")
+tfs["query"] = calc_tf("how does uber work")
 # docs = []
 # for i, doc in enumerate(f):
 #     doc = doc.strip("\n")
@@ -100,14 +106,16 @@ tfs["query"] = calc_tf("what is ip")
 docs = []
 i = 0
 for file in os.listdir("temp"):
-    text_file = open(os.path.join("temp", file))
-    data = text_file.read()
-    text_file.close()
-    docs.append(data)
-    tfs["d"+str(i)] = calc_tf(data)
-    i+=1
+    with open(os.path.join("temp", file),"r") as f:
+        data = f.read()
+        docs.append(data)
+        tfs["d"+str(i)] = calc_tf(data)
+        i+=1
+
+
 
 idfs = calc_idfs(tfs)
 tf_idfs = calc_tfidfs(tfs, idfs)
+write_to_file(str(tf_idfs), "tfidf.txt")
 calc_sim(tf_idfs)
 write_res()
