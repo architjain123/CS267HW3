@@ -4,13 +4,6 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-documents = []
-for file in os.listdir("temp"):
-    text_file = open(os.path.join("temp", file))
-    data = text_file.read()
-    text_file.close()
-    documents.append(data)
-
 # vectorizer = TfidfVectorizer()
 # vectors = vectorizer.fit_transform(["what is my ip", "my ip has been provided"])
 # feature_names = vectorizer.get_feature_names()
@@ -82,8 +75,8 @@ def calc_sim(tf_idfs):
 
     return sim
 
-def write_res():
-    out = open("output.txt", "w")
+def write_res(filename):
+    out = open(filename, "w")
     sorted_tuples = sorted(scores.items(), key=lambda item: item[1], reverse=True)
     for k,v in sorted_tuples:
         out.write(str(k)+": "+str(v)+"\n")
@@ -95,27 +88,24 @@ def write_to_file(content, filename):
         f.write(content)
 
 
-tfs = {}
-tfs["query"] = calc_tf("how does uber work")
-# docs = []
-# for i, doc in enumerate(f):
-#     doc = doc.strip("\n")
-#     docs.append(doc)
-#     tfs["d"+str(i)] = calc_tf(doc)
+count = 0
+with open("queries.txt", "r") as f:
+    lines = f.readlines()
+    for query in lines:
+        tfs = {}
+        tfs["query"] = calc_tf(query)
+        docs = []
+        i = 0
+        for file in os.listdir("temp"):
+            with open(os.path.join("temp", file),"r") as f:
+                data = f.read()
+                docs.append(data)
+                tfs["d"+str(i)] = calc_tf(data)
+                i+=1
 
-docs = []
-i = 0
-for file in os.listdir("temp"):
-    with open(os.path.join("temp", file),"r") as f:
-        data = f.read()
-        docs.append(data)
-        tfs["d"+str(i)] = calc_tf(data)
-        i+=1
-
-
-
-idfs = calc_idfs(tfs)
-tf_idfs = calc_tfidfs(tfs, idfs)
-write_to_file(str(tf_idfs), "tfidf.txt")
-calc_sim(tf_idfs)
-write_res()
+        idfs = calc_idfs(tfs)
+        tf_idfs = calc_tfidfs(tfs, idfs)
+        write_to_file(str(tf_idfs), f"incorrect/tfidf{count}.txt")
+        calc_sim(tf_idfs)
+        write_res(f"incorrect/output{count}.txt")
+        count +=1
