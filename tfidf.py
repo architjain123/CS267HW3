@@ -52,7 +52,6 @@ def calc_tfidfs(tfs, idfs):
     return tf_idfs
 
 def comp_vec_sim(q, d, num):
-    # print(q, d)
     q_vec = []
     d_vec = []
     for term in q:

@@ -36,12 +36,15 @@ $html_processor = new HtmlProcessor($max_description_len = 20000, $summarizer_op
 mkdir("temp");
 $i = 0;
 foreach ($pages as $page){
+    // in case some pages do not return content
     if (trim($page[CrawlConstants::PAGE]) == ""){
         $failed_url = $page[CrawlConstants::URL];
-        print_r("ERROR: Cannot process $failed_url as page is empty");
+        print_r("WARNING: Cannot process $failed_url as page is empty. SKIPPING.");
+        print_r("\n");
         continue;
     }
 
+    // get page content
     $html_content = $html_processor->process($page[CrawlConstants::PAGE], $page[CrawlConstants::URL]);
     $page_locale = $html_content[CrawlConstants::LANG];
     $page_text = PhraseParser::extractWordStringPageSummary($html_content);
@@ -54,6 +57,7 @@ foreach ($pages as $page){
 
     $keys = array_keys($unique_terms);
 
+    // do not need to stem in case locale is none
     if ($locale == "none"){
         $stemmed_keys = $keys;
     }
@@ -72,15 +76,15 @@ foreach ($pages as $page){
     create_summary_file($i, $stemmed_keys);
     $i = $i + 1;
     print_r($page[CrawlConstants::URL] . "\n");
-    // foreach($stemmed_keys as $key){
-    //     print_r($key . "\n");
-    // }
+    foreach($stemmed_keys as $key){
+        print_r($key . "\n");
+    }
     print_r("\n");
 }
 
+// put the content in a file which can be used to compute tfidf scores
 function create_summary_file($i, $stemmed_keys){
     $text = implode(" ", $stemmed_keys);
     file_put_contents("temp/$i.txt", $text);
 }
-
 ?>
