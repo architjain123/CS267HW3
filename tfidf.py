@@ -64,7 +64,7 @@ def comp_vec_sim(q, d, num):
         q_vec.append(0)
     
     score = round(dot(q_vec, d_vec)/(norm(q_vec)*norm(d_vec)), 3)
-    if score > 0 : scores[num] = score
+    if score >= 0 : scores[num] = score
 
 def calc_sim(tf_idfs):
     sim = {}
@@ -87,24 +87,25 @@ def write_to_file(content, filename):
         f.write(content)
 
 
-count = 0
+count = 1
 with open("queries.txt", "r") as f:
     lines = f.readlines()
     for query in lines:
         tfs = {}
         tfs["query"] = calc_tf(query)
         docs = []
-        i = 0
-        for file in os.listdir("temp"):
-            with open(os.path.join("temp", file),"r") as f:
+        for i in range(36):
+            with open(os.path.join("temp", str(i)+".txt"),"r") as f:
                 data = f.read()
                 docs.append(data)
                 tfs["d"+str(i)] = calc_tf(data)
                 i+=1
 
+        print (len(docs))
+
         idfs = calc_idfs(tfs)
         tf_idfs = calc_tfidfs(tfs, idfs)
         write_to_file(str(tf_idfs), f"incorrect/tfidf{count}.txt")
         calc_sim(tf_idfs)
-        write_res(f"incorrect/output{count}.txt")
+        write_res(f"incorrect/cosine{count}.txt")
         count +=1

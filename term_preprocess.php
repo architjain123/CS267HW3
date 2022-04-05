@@ -51,6 +51,7 @@ foreach ($pages as $page){
     $page_text_terms = explode(" ", $page_text);
     
     // get unique terms
+    $unique_terms = [];
     foreach($page_text_terms as $term){
         $unique_terms[$term] = true;
     }
