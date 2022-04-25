@@ -76,7 +76,7 @@ foreach ($pages as $page){
     sort($stemmed_keys);
     create_summary_file($i, $stemmed_keys);
     $i = $i + 1;
-    print_r($page[CrawlConstants::URL] . "\n");
+    print_r($page[CrawlConstants::URL]);
     foreach($stemmed_keys as $key){
         print_r($key . "\n");
     }
