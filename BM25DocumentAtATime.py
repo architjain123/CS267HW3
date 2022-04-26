@@ -96,6 +96,8 @@ def next_doc(term, doc_id):
 
 def rank_bm25_document_at_a_time(terms, k):
 
+    term_doc_freq, term_doc_list = get_term_doc_freq(terms)
+
     # result = [score, docid]
     result = queue.PriorityQueue()
     for i in range(k):
@@ -106,52 +108,31 @@ def rank_bm25_document_at_a_time(terms, k):
     for term in terms:
         terms_pq.put((next_doc(term, -math.inf), term))
 
-    print(terms_pq)
+    while (terms_pq.queue[0][0] < math.inf):
+        d = terms_pq.queue[0][0]
+        score = 0
+        while terms_pq.queue[0][0] == d:
+            t = terms_pq.queue[0][1]
+            score += tf_bm25(t, d, term_doc_list)
+            curr_next_doc, curr_term = terms_pq.get()
+            terms_pq.put((next_doc(t, d), curr_term))
+
+        if score > result.queue[0][0]:
+            result.get()
+            result.put((score, d))
 
 
-    term_doc_freq, term_doc_list = get_term_doc_freq(terms)
-    terms = [x[1] for x in term_doc_freq]
+    all_results = []
+    while len(result.queue) > 0:
+        score, docid = result.get()
+        if score != 0:
+            all_results.append((score, docid))
+    if len(all_results) < k:
+        k = len(all_results)
 
-    # acc used for prev round, acc_p used for next
-    acc = {}
-    acc_p = {}
-    acc[0] = {'docid': math.inf, 'score': math.inf}
-    for term in terms:
-        if term not in index:
-            continue
-        quota_left = acc_num - len(acc)
-        if len(term_doc_list[term]) <= quota_left:
-            in_pos = 0
-            out_pos = 0
-            for d in term_doc_list[term]:
-                while acc[in_pos]['docid'] < d:
-                    acc_p[out_pos] = acc[in_pos].copy()
-                    out_pos += 1
-                    in_pos += 1
-                acc_p[out_pos] = {'docid': d, 'score': tf_bm25(term, d, term_doc_list)}
-                if acc[in_pos]['docid'] == d:
-                    acc_p[out_pos]['score'] += acc[in_pos]['score']
-                    in_pos += 1
-                out_pos += 1
-
-        elif quota_left == 0:
-            for j in range(len(acc)):
-                acc[j]['score'] = acc[j]['score'] * tf_bm25(term, acc[j]['docid'], term_doc_list)
-
-        # copy remaining acc to acc'
-        while acc[in_pos]['docid'] < math.inf:
-            acc_p[out_pos] = acc[in_pos].copy()
-            out_pos += 1
-            in_pos += 1
-
-        # end-of-list marker
-        acc_p[out_pos] = {'docid': math.inf, 'score': math.inf}
-        temp = acc
-        acc = acc_p
-        acc_p = temp
-
-        top_k_results = get_top_k_results_heaps(acc, k)
-        return top_k_results
+    top_k_results = all_results[-k:]
+    top_k_results.reverse()
+    return top_k_results
 
 
 if __name__ == "__main__":
@@ -164,6 +145,5 @@ if __name__ == "__main__":
     documents = get_documents(folder_path)
     index = get_index(documents)
     top_k_result = rank_bm25_document_at_a_time(terms, k)
-
     for idx, (score, doc_id) in enumerate(top_k_result):
         print(f"1 0 {doc_id+1} {idx+1} {score} BM_DocumentAtATime")

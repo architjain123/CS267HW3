@@ -126,9 +126,7 @@ def rank_bm25_term_at_a_time(terms, k, acc_num):
 
         # end-of-list marker
         acc_p[out_pos] = {'docid': math.inf, 'score': math.inf}
-        temp = acc
-        acc = acc_p
-        acc_p = temp
+        acc, acc_p = acc_p, acc
 
         top_k_results = get_top_k_results_heaps(acc, k)
         return top_k_results
