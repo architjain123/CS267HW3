@@ -68,7 +68,7 @@ def tf_bm25(term, doc_id, term_doc_list):
     l_avg_sum = sum(len(document) for document in documents)
     l_avg = l_avg_sum / len(documents)
 
-    idf = math.log(N/Nt)
+    idf = math.log(N/Nt, 2)
     tf_bm25 = (ftd * (k1 + 1)) / (ftd + k1 * ((1-b) + b * (l_d/l_avg)))
     return idf * tf_bm25
 
@@ -128,8 +128,8 @@ def rank_bm25_term_at_a_time(terms, k, acc_num):
         acc_p[out_pos] = {'docid': math.inf, 'score': math.inf}
         acc, acc_p = acc_p, acc
 
-        top_k_results = get_top_k_results_heaps(acc, k)
-        return top_k_results
+    top_k_results = get_top_k_results_heaps(acc, k)
+    return top_k_results
 
 
 if __name__ == "__main__":
@@ -145,5 +145,5 @@ if __name__ == "__main__":
     top_k_result = rank_bm25_term_at_a_time(terms, k, acc_num)
 
     for idx, (score, doc_id) in enumerate(top_k_result):
-        print(f"1 0 {doc_id+1} {idx+1} {score} BM_TermAtATime")
+        print(f"1 0 {doc_id} {idx+1} {score} BM_TermAtATime")
 
