@@ -1,4 +1,6 @@
-import os, sys, math, heapq, re, queue
+# HW4 - Archit Jain, Damanpreet Kaur, Inderpreet Singh
+
+import os, sys, math, heapq, re, queue, time
 
 
 def get_documents(folder_path):
@@ -137,6 +139,7 @@ def rank_bm25_document_at_a_time(terms, k):
 
 if __name__ == "__main__":
 
+    # start_time = time.time()
     folder_path = sys.argv[1]
     k = int(sys.argv[2])
     query = sys.argv[3]
@@ -147,3 +150,6 @@ if __name__ == "__main__":
     top_k_result = rank_bm25_document_at_a_time(terms, k)
     for idx, (score, doc_id) in enumerate(top_k_result):
         print(f"1 0 {doc_id} {idx+1} {score} BM_DocumentAtATime")
+
+    # end_time = time.time()
+    # print(f"Total elapsed: {end_time - start_time}s")
